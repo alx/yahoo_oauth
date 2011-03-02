@@ -10,7 +10,7 @@
 module YahooOAuth
   class Client
     
-    def escape
+    def escape(value)
       URI::escape(value.to_s, /[^a-zA-Z0-9\-\.\_\~]/)
     end
     
