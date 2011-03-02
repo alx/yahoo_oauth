@@ -10,6 +10,10 @@
 module YahooOAuth
   class Client
     
+    def escape
+      URI::escape(value.to_s, /[^a-zA-Z0-9\-\.\_\~]/)
+    end
+    
     def posts_add(parameters)
       query = parameters.map { |k, v| "#{escape(k.to_s)}=#{escape(v)}" } * '&'
       components = ['http://api.del.icio.us/v2/posts/add']
